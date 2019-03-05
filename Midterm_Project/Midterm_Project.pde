@@ -28,6 +28,7 @@ void draw() {
   switch(gamestate) {
   case 0:
     background(#D2F2C6);
+    //add instructions
 
     frog.Display();
     frog.Move();
