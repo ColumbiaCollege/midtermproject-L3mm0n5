@@ -56,6 +56,7 @@ class Frog {
   }
 
   void Display() {
+    imageMode(CENTER);
     if (dir == 0) {
       image(frog, xPos, yPos);
     }
@@ -82,5 +83,9 @@ class Frog {
     } else {
       return false;
     }
+  }
+  
+  void dies(){
+  gamestate = 1;
   }
 }
