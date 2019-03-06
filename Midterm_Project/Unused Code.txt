@@ -1,0 +1,14 @@
+  //boolean frogY() {
+  //  if (yDir) {
+  //    return true;
+  //  } else {
+  //    return false;
+  //  }
+  //}
+  //boolean frogX() {
+  //  if (xDir) {
+  //    return true;
+  //  } else {
+  //    return false;
+  //  }
+  //}

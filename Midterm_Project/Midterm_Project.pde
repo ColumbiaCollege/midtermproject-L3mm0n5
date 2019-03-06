@@ -1,10 +1,13 @@
-//frogger clone
+//Frogger inspired "game" - Caleb
+
+//initialize variables
 boolean right = false;
 boolean left = false;
 boolean up = false;
 boolean down = false;
 PImage vehicle;
 int gamestate;
+//initialize frog and cars
 Frog frog;
 Car car;
 Car [] cars;
@@ -18,7 +21,7 @@ void setup() {
 
   cars = new Car[100];
   for (int y = 0; y < 100; y++) {
-    cars[y] = new Car(y%8, y*58);
+    cars[y] = new Car(y%9, y*58);
   }
   gamestate = 0;
 }
@@ -29,7 +32,10 @@ void draw() {
   case 0:
     background(#D2F2C6);
     //add instructions
-
+    fill(0);
+    textSize(22);
+    textAlign(CENTER);
+    text("Use the arrow keys to move. Avoid the cars!", width/2, 50);
     frog.Display();
     frog.Move();
     car.Display();
@@ -56,20 +62,21 @@ void draw() {
     }
     break;
   case 1:
-  
+
     //background(#D2F2C6);
-    //replace this with game over
+    fill(#D2F2C6);
+    rect(0, 0, width, 80);
     fill(0);
     textAlign(CENTER);
     textSize(64);
     text("GAME OVER!", 250, 500);
     noLoop();
-      break;
+    break;
   }
 }
 void keyReleased() {
 
-  //if the arrow keys aren't pressed the (object) will stop moving
+  //if the arrow keys are pressed, the frog will move
   if (keyCode == LEFT) {
     left = true;
   }
