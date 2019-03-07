@@ -1,0 +1,120 @@
+Psuedocode for Caleb's Frogger insipred "game"
+note: psuedocode written in Notepad++, highly recommend using that to view this document (and all .txt's honestly, I'll never view a readme the same way again) for most pleasant reading experience
+
+Set variables:
+	booleans: (all false)
+		right
+		left
+		up
+		down
+	image:
+		vehicle (car)
+	integer:
+		gamestate
+Set memory for frog and cars' objects
+	Frog 
+	Car
+	Cars (multiple cars)
+Setup:
+	set image mode to center (just in case)
+	size: 500 by 1000
+	background color: light green
+	load image for car
+	
+	initialize frog and cars
+		new frog object
+		new car object on row 1 and temporary x position 200
+		new cars object: make 100 cars
+		use for loop to spread cars out
+	set gamestate to 0, the main gameplay mode
+Draw:
+	make switch for gamestate mode to allow for switching between main gameplay mode and gameover mode
+	
+	Main gameplay mode (case 0)
+		set background to prevent moving objects from bleeding
+		add instructions at the top of the screen
+		use frog and car class methods (a display and move method from each class)
+		add a background colored rectangle at the top to cover extra cars
+		set the movement booleans (left,roght,up,down) to false to make frog stop moving when not pressing an arrow key
+		check for collision
+	
+	Gameover mode(case 1)
+		background colored rectangle to cover instructions
+		gameover text in the middle of screen
+		use noLoop to freeze all objects where they are
+Key Released method
+	when arrow keys are released, move frog in specified direction (up,down,left or right)
+create Check Collision method using the radius based distance method
+
+*new tab*
+
+Car class
+	set variables
+		float
+			x position
+			y position
+			previous x position
+	constructor
+		expect integer variables for temp car row and temp x position
+		resize vehicle image to better match frog image size
+		set y position to 100 times temp car row
+		set x position to random value to spread cars out 
+	display method
+		center and display car image at x position and y position
+	move method
+		move cars constantly leftward and loop back around
+
+*new tab*
+	set variables
+		integer for direction state
+	
+Frog class
+	set variables
+		floats for x position, y position, previous x position and previous y position (all set to 0)
+		images for each of the four frog directions (up, down, left, & right)
+	constructor
+		load the four frog images (one for each cardinal direction)
+		set initial position near the bottom of the screen
+		set previous x position to equal x position
+		set previous y position to equal y position
+	move method
+		set previous x position to equal x position
+		set previous y position to equal y position
+		if a direction input boolean is set to true (by pressing appropriate arrow key), move frog in designated direction by a set number of pixels to create gridlike movement and set the directions integer to a number between zero and 3, depending on which direction the frog is moved. one value for each direction
+	display method
+		using the direction integer, set the frog image to its matching direction (0 for up, 1 for right, 2 for down, and 3 for left)
+	dies method
+		when frog dies, change to gameover gamestate
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	
+	
+	
