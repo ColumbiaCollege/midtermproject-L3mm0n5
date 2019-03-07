@@ -1,32 +1,24 @@
-
-
 class Car {
-  
+  //initialize varibles
   float xPos;
   int yPos;
-  int carNum[];
   float previousXPos;
-  //int carY[];
 
   Car(int tempRow, int tempXpos) {
+    //resize car image and set position variables
     vehicle.resize(80, 0);
     yPos = 100*tempRow;
-    xPos = random(50,5000);
-    //carY[0] = 550;
-    //carY[1] = 600;
-    //carY[2] = 650;
+    xPos = random(50, 5000);
   }
   void Display() {
+    //center and then display image
     imageMode(CENTER);
     image(vehicle, xPos, yPos);
-    
   }
   void Move() {
-
+    //moves car contantly to the left and loop around screen
     xPos--;
-
- if (xPos < -50)
-      //ship went left
-    xPos = width+200;
+    if (xPos < -50)
+      xPos = width+200;
   }
 }

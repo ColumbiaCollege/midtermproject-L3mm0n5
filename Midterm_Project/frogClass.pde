@@ -1,28 +1,34 @@
+//initialize direction changing variables
 boolean yDir = false;
 boolean xDir = false;
 int dir = 0;
 
 class Frog {
+  //initialize position and image variables
   float xPos =0;
+  float yPos = 0;     
   float previousXPos =0;
   float previousYPos =0;
-  float yPos = 0;      
   PImage frog;
   PImage frogDown;
   PImage frogLeft;
   PImage frogRight;
 
   Frog() {
+    //load 4 directions of frog images
     frog = loadImage("frogUp.png");
     frogDown = loadImage("frogDown.png");
     frogLeft = loadImage("frogLeft.png");
     frogRight = loadImage("frogRight.png");
+    
+    //set initial postion
     xPos = width/2;
     yPos = height-100;
     previousXPos = xPos;
     previousYPos = yPos;
   }
   void Move() {
+    //Moves frog in a gridlike pattern and switches dir variable, used for setting correct directional image
     previousXPos =xPos;
     previousYPos =yPos;    
     if (left) {
@@ -41,6 +47,7 @@ class Frog {
       yPos = yPos + 40;
       dir = 2;
     }
+    //Retain frog direction image that was last used
     if (yPos - previousYPos >0 && previousYPos!= 0)
       //frog went down, 
       yDir = false;
@@ -56,6 +63,7 @@ class Frog {
   }
 
   void Display() {
+    //Use the "dir" variable to change frog's image based on what direction it's facing
     imageMode(CENTER);
     if (dir == 0) {
       image(frog, xPos, yPos);
@@ -70,22 +78,8 @@ class Frog {
       image(frogLeft, xPos, yPos);
     }
   }
-  boolean frogY() {
-    if (yDir) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  boolean frogX() {
-    if (xDir) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-  
-  void dies(){
-  gamestate = 1;
+  // When frog dies, change gamestate to 1 (gameover screen)
+  void dies() {
+    gamestate = 1;
   }
 }
